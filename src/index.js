@@ -22,3 +22,14 @@ const popupRepairTypes =  new PopUp({
   }
   `
 });
+
+const  popupPrivacy = new PopUp({
+  popUpSelector: '[data-popup="privacy"]',
+  openButtonsSelector: '[data-open="privacy"]',
+  closeButtonsSelector: '[data-close="privacy"]',
+  activeCSS: `
+  [data-popup="privacy"].active {
+  visibility: visible;
+  }
+ `
+});
