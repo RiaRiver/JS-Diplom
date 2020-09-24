@@ -358,6 +358,7 @@ template, [hidden] {
         -ms-flex-align: end;
         align-items: flex-end;
         top: 0;
+        left: 0;
         -webkit-transition: 0.5s;
         transition: 0.5s; }
         .header-contacts__phone-number-accord a {
@@ -1382,9 +1383,9 @@ template, [hidden] {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      -webkit-box-pack: space-arround;
-      -ms-flex-pack: space-arround;
-      justify-content: space-arround;
+      -webkit-box-pack: space-around;
+      -ms-flex-pack: space-around;
+      justify-content: space-around;
       max-width: 180px; }
       .feedback-block__form label:first-child {
         margin-left: 15px; }
@@ -3321,8 +3322,8 @@ div.wave-block:nth-child(17):after {
           right: 18px; } }
   .accordion ul {
     list-style: none;
-    -webkit-perspective: 900;
-    perspective: 900;
+    -webkit-perspective: 900px;
+    perspective: 900px;
     padding: 0;
     margin: 0; }
     .accordion ul li {
