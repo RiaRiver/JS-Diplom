@@ -11,3 +11,14 @@ const popupMenu = new PopUp({
   openButtonsSelector: '[data-open="menu"]',
   activeClass: 'showHide-menu',
 });
+
+const popupRepairTypes =  new PopUp({
+  popUpSelector: '[data-popup="repair-types"]',
+  closeButtonsSelector: '[data-close="repair-types"]',
+  openButtonsSelector: '[data-open="repair-types"]',
+  activeCSS: `
+  [data-popup="repair-types"].active {
+  visibility: visible;
+  }
+  `
+});
