@@ -1,4 +1,6 @@
 // Плавная прокрутка к элементу
 export const smoothScroll = elem => {
-  elem.scrollIntoView({behavior: 'smooth'});
+  if (elem.hash) {
+    document.querySelector(elem.hash).scrollIntoView({ behavior: 'smooth' });
+  }
 };

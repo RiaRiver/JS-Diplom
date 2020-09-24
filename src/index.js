@@ -1,6 +1,7 @@
 import "./modules/polyfills";
 import { viewSecondPhoneNumber } from "./modules/viewSecondPhoneNumber";
 import { PopUp } from "./modules/PopUp";
+import { smoothScroll } from "./modules/smoothScroll";
 
 viewSecondPhoneNumber();
 
@@ -43,4 +44,19 @@ const popupConsultation = new PopUp({
   visibility: visible;
   }
  `
+});
+
+// Плавная прокрутка Вверх и пунктов Меню
+document.getElementById('toTop').addEventListener('click', event => {
+  event.preventDefault();
+  smoothScroll(event.target);
+});
+
+popupMenu.popUp.addEventListener('click', event => {
+  const target = event.target;
+  if (target.matches('a')) {
+    event.preventDefault();
+    smoothScroll(target);
+    popupMenu.closePopUp();
+  }
 });
