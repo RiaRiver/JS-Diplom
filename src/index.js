@@ -3,6 +3,7 @@ import { viewSecondPhoneNumber } from "./modules/viewSecondPhoneNumber";
 import { PopUp } from "./modules/PopUp";
 import { setupSmoothScroll } from "./modules/setupSmoothScroll";
 import { setupForms } from "./modules/setupForms";
+import { setupAccordion } from "./modules/setupAccordion";
 
 // Показ второго телефона в шапке
 viewSecondPhoneNumber();
@@ -63,3 +64,6 @@ setupSmoothScroll(popupMenu);
 
 // Настройка отправки форм
 setupForms(popupThank);
+
+// Настройка аккордеона
+setupAccordion();
