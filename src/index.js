@@ -1,8 +1,10 @@
 import "./modules/polyfills";
 import { viewSecondPhoneNumber } from "./modules/viewSecondPhoneNumber";
 import { PopUp } from "./modules/PopUp";
-import { smoothScroll } from "./modules/smoothScroll";
+import { setupSmoothScroll } from "./modules/setupSmoothScroll";
+import { setupForms } from "./modules/setupForms";
 
+// Показ второго телефона в шапке
 viewSecondPhoneNumber();
 
 // Инициализация моадльных окон
@@ -13,7 +15,7 @@ const popupMenu = new PopUp({
   activeClass: 'showHide-menu',
 });
 
-const popupRepairTypes =  new PopUp({
+const popupRepairTypes = new PopUp({
   popUpSelector: '[data-popup="repair-types"]',
   closeButtonsSelector: '[data-close="repair-types"]',
   openButtonsSelector: '[data-open="repair-types"]',
@@ -24,7 +26,7 @@ const popupRepairTypes =  new PopUp({
   `
 });
 
-const  popupPrivacy = new PopUp({
+const popupPrivacy = new PopUp({
   popUpSelector: '[data-popup="privacy"]',
   openButtonsSelector: '[data-open="privacy"]',
   closeButtonsSelector: '[data-close="privacy"]',
@@ -46,17 +48,18 @@ const popupConsultation = new PopUp({
  `
 });
 
-// Плавная прокрутка Вверх и пунктов Меню
-document.getElementById('toTop').addEventListener('click', event => {
-  event.preventDefault();
-  smoothScroll(event.target);
+const popupThank = new PopUp({
+  popUpSelector: '[data-popup="thank"]',
+  closeButtonsSelector: '[data-close="thank"]',
+  activeCSS: `
+  [data-popup="thank"].active {
+  visibility: visible;
+  }
+ `
 });
 
-popupMenu.popUp.addEventListener('click', event => {
-  const target = event.target;
-  if (target.matches('a')) {
-    event.preventDefault();
-    smoothScroll(target);
-    popupMenu.closePopUp();
-  }
-});
+// Настройка плавной прокрутки
+setupSmoothScroll(popupMenu);
+
+// Настройка отправки форм
+setupForms(popupThank);
