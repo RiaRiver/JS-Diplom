@@ -4,7 +4,7 @@ import { smoothScroll } from "./smoothScroll";
 export const setupSmoothScroll = popupMenu => {
   document.getElementById('toTop').addEventListener('click', event => {
     event.preventDefault();
-    const target = event.target;
+    const target = event.currentTarget;
     smoothScroll(target.querySelector('a'));
   });
 
