@@ -8,6 +8,7 @@ export const maskPhone = elem => {
 
     if (pos < 3) {
       event.preventDefault();
+      input.selectionStart = 3;
     }
     const matrix = "+7 (___) ___-__-__",
       def = matrix.replace(/\D/g, ""),
