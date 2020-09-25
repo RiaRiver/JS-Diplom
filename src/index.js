@@ -4,6 +4,7 @@ import { PopUp } from "./modules/PopUp";
 import { setupSmoothScroll } from "./modules/setupSmoothScroll";
 import { setupForms } from "./modules/setupForms";
 import { setupAccordion } from "./modules/setupAccordion";
+import { maskPhone } from "./modules/maskPhone";
 
 // Показ второго телефона в шапке
 viewSecondPhoneNumber();
@@ -67,3 +68,7 @@ setupForms(popupThank);
 
 // Настройка аккордеона
 setupAccordion();
+
+// Установка маски для полей с телефоном
+const phoneInputs = document.querySelectorAll('[name="phone"]');
+phoneInputs.forEach(input => maskPhone(input));
