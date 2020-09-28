@@ -21,43 +21,49 @@ const popupRepairTypes = new PopUp({
   popUpSelector: '[data-popup="repair-types"]',
   closeButtonsSelector: '[data-close="repair-types"]',
   openButtonsSelector: '[data-open="repair-types"]',
-  activeCSS: `
-  [data-popup="repair-types"].active {
-  visibility: visible;
-  }
-  `
+  activeClass: 'popup-active'
 });
 
 const popupPrivacy = new PopUp({
   popUpSelector: '[data-popup="privacy"]',
   openButtonsSelector: '[data-open="privacy"]',
   closeButtonsSelector: '[data-close="privacy"]',
-  activeCSS: `
-  [data-popup="privacy"].active {
-  visibility: visible;
-  }
- `
+  activeClass: 'popup-active'
 });
 
 const popupConsultation = new PopUp({
   popUpSelector: '[data-popup="consultation"]',
   openButtonsSelector: '[data-open="consultation"]',
   closeButtonsSelector: '[data-close="consultation"]',
-  activeCSS: `
-  [data-popup="consultation"].active {
-  visibility: visible;
-  }
- `
+  activeClass: 'popup-active'
+});
+
+const popupDesign = new PopUp({
+  popUpSelector: '[data-popup="design"]',
+  openButtonsSelector: '[data-open="design"]',
+  closeButtonsSelector: '[data-close="design"]',
+  activeClass: 'popup-active',
+  disactiveClass: 'hide'
+});
+const popupTransparency = new PopUp({
+  popUpSelector: '[data-popup="transparency"]',
+  openButtonsSelector: '[data-open="transparency"]',
+  closeButtonsSelector: '[data-close="transparency"]',
+  activeClass: 'popup-active',
+  disactiveClass: 'hide'
+});
+
+const popupPortfolio = new PopUp({
+  popUpSelector: '[data-popup="portfolio"]',
+  closeButtonsSelector: '[data-close="portfolio"]',
+  activeClass: 'popup-active',
+  disactiveClass: 'hide'
 });
 
 const popupThank = new PopUp({
   popUpSelector: '[data-popup="thank"]',
   closeButtonsSelector: '[data-close="thank"]',
-  activeCSS: `
-  [data-popup="thank"].active {
-  visibility: visible;
-  }
- `
+  activeClass: 'popup-active'
 });
 
 // Настройка плавной прокрутки

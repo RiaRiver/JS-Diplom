@@ -56,8 +56,6 @@ export const sendForm = (form, errorClass = 'error', {
 
   // Вывод успешной отправки и ошибки
   const outputSuccess = () => {
-    console.log('success');
-    console.log('thanks', successMessageOrPopUp instanceof PopUp);
     if (successMessageOrPopUp instanceof PopUp) {
       successMessageOrPopUp.openPopUp();
       statusMessage.textContent = '';
