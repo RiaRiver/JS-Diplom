@@ -1,70 +1,26 @@
 import "./modules/polyfills";
 import { viewSecondPhoneNumber } from "./modules/viewSecondPhoneNumber";
-import { PopUp } from "./modules/PopUp";
 import { setupSmoothScroll } from "./modules/setupSmoothScroll";
 import { setupForms } from "./modules/setupForms";
 import { setupAccordion } from "./modules/setupAccordion";
 import { maskPhone } from "./modules/maskPhone";
+import { RiverSlider } from "./modules/riverSlider";
+
+import "./modules/setupPopUps"; // Настройка модальных
+import "./modules/addDiffStyles"; // Добавление некоторых стилей
+import "./modules/setupRepairSliders"; // Настройка слайдеров Виды ремонта
+import "./modules/setupPortfolioSliders"; // Настройка слайдеров Портфолио
+import "./modules/setupTransparencySliders"; // Настройка слайдеров Документы
+import "./modules/setupDesignsSliders"; // Настройка слайдеров Дизайн
+import "./modules/setupSchemeSlider"; // Настройка слайдеров Работа
+import "./modules/setupControlTabs"; // Настройка Табов
+
+import { popupMenu, popupPortfolio, popupThank } from "./modules/setupPopUps";
+import { popupTransparencySlider } from "./modules/setupTransparencySliders";
+import { popupPortfolioSlider } from "./modules/setupPortfolioSliders";
 
 // Показ второго телефона в шапке
 viewSecondPhoneNumber();
-
-// Инициализация моадльных окон
-const popupMenu = new PopUp({
-  popUpSelector: '[data-popup="menu"]',
-  closeButtonsSelector: '[data-close="menu"]',
-  openButtonsSelector: '[data-open="menu"]',
-  activeClass: 'showHide-menu',
-});
-
-const popupRepairTypes = new PopUp({
-  popUpSelector: '[data-popup="repair-types"]',
-  closeButtonsSelector: '[data-close="repair-types"]',
-  openButtonsSelector: '[data-open="repair-types"]',
-  activeClass: 'popup-active'
-});
-
-const popupPrivacy = new PopUp({
-  popUpSelector: '[data-popup="privacy"]',
-  openButtonsSelector: '[data-open="privacy"]',
-  closeButtonsSelector: '[data-close="privacy"]',
-  activeClass: 'popup-active'
-});
-
-const popupConsultation = new PopUp({
-  popUpSelector: '[data-popup="consultation"]',
-  openButtonsSelector: '[data-open="consultation"]',
-  closeButtonsSelector: '[data-close="consultation"]',
-  activeClass: 'popup-active'
-});
-
-const popupDesign = new PopUp({
-  popUpSelector: '[data-popup="design"]',
-  openButtonsSelector: '[data-open="design"]',
-  closeButtonsSelector: '[data-close="design"]',
-  activeClass: 'popup-active',
-  disactiveClass: 'hide'
-});
-const popupTransparency = new PopUp({
-  popUpSelector: '[data-popup="transparency"]',
-  openButtonsSelector: '[data-open="transparency"]',
-  closeButtonsSelector: '[data-close="transparency"]',
-  activeClass: 'popup-active',
-  disactiveClass: 'hide'
-});
-
-const popupPortfolio = new PopUp({
-  popUpSelector: '[data-popup="portfolio"]',
-  closeButtonsSelector: '[data-close="portfolio"]',
-  activeClass: 'popup-active',
-  disactiveClass: 'hide'
-});
-
-const popupThank = new PopUp({
-  popUpSelector: '[data-popup="thank"]',
-  closeButtonsSelector: '[data-close="thank"]',
-  activeClass: 'popup-active'
-});
 
 // Настройка плавной прокрутки
 setupSmoothScroll(popupMenu);
@@ -78,3 +34,59 @@ setupAccordion();
 // Установка маски для полей с телефоном
 const phoneInputs = document.querySelectorAll('[name="phone"]');
 phoneInputs.forEach(input => maskPhone(input));
+
+// Reviews слайдер
+const reviewsSlider = new RiverSlider({
+  main: '.reviews-slider',
+  wrap: '.reviews-slider__wrap',
+  prev: '#reviews-arrow_left',
+  next: '#reviews-arrow_right',
+  disabledArrowClass: 'hide',
+  // loop: true,
+  type: 'slide',
+});
+reviewsSlider.init();
+
+// Partners слайдер
+const partnersSlider = new RiverSlider({
+  main: '.partners-slider',
+  wrap: '.partners-slider__wrap',
+  prev: '#partners-arrow_left',
+  next: '#partners-arrow_right',
+  disabledArrowClass: 'hide',
+  // loop: true,
+  type: 'slide',
+  slidesPerView: 3,
+  responsive: [
+    {
+      breakpoint: 1024,
+      slidesPerView: 2
+    },
+    {
+      breakpoint: 575,
+      slidesPerView: 1
+    },
+  ]
+});
+partnersSlider.init();
+
+
+// Установка слушателя для изменения слайда документа в модальном
+const transparencyDocs = document.querySelectorAll('[data-open="transparency"]');
+console.log(transparencyDocs);
+transparencyDocs.forEach(doc => doc.addEventListener('click', event => {
+  popupTransparencySlider.changeState(+event.currentTarget.dataset.slide);
+}));
+
+// Установка слушателя для открытия модального портфолио с соответствующим слайдом
+const portfolioBlocks = document.querySelectorAll('.portfolio-slider-wrap');
+portfolioBlocks.forEach(block => {
+  block.addEventListener('click', event => {
+    console.log('click portfolio');
+    const portfolioItem = event.target.closest('[data-slide]');
+    if (portfolioItem) {
+      popupPortfolio.openPopUp();
+      popupPortfolioSlider.changeState(+portfolioItem.dataset.slide);
+    }
+  });
+});
