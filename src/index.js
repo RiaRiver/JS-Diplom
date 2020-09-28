@@ -73,7 +73,6 @@ partnersSlider.init();
 
 // Установка слушателя для изменения слайда документа в модальном
 const transparencyDocs = document.querySelectorAll('[data-open="transparency"]');
-console.log(transparencyDocs);
 transparencyDocs.forEach(doc => doc.addEventListener('click', event => {
   popupTransparencySlider.changeState(+event.currentTarget.dataset.slide);
 }));
@@ -82,7 +81,6 @@ transparencyDocs.forEach(doc => doc.addEventListener('click', event => {
 const portfolioBlocks = document.querySelectorAll('.portfolio-slider-wrap');
 portfolioBlocks.forEach(block => {
   block.addEventListener('click', event => {
-    console.log('click portfolio');
     const portfolioItem = event.target.closest('[data-slide]');
     if (portfolioItem) {
       popupPortfolio.openPopUp();
