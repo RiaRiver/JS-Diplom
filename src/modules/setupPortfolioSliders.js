@@ -1,5 +1,5 @@
 // Portfolio слайдер
-import { RiverSlider } from "./riverSlider";
+import { RiverSlider } from "./RiverSlider";
 
 const portfolioSlider = new RiverSlider({
   main: '.portfolio-slider',

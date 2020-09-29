@@ -1,5 +1,5 @@
 // Repair слайдеры
-import { RiverSlider } from "./riverSlider";
+import { RiverSlider } from "./RiverSlider";
 
 const repair1Slider = new RiverSlider({
   main: '.types-repair1',

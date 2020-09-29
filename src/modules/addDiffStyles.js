@@ -1,4 +1,4 @@
-// Добавление осоых стилей для слайдеров
+// Добавление особых стилей для разных элементов
 import { addStyle } from "./styles";
 
 addStyle('js-slider', `
@@ -42,4 +42,34 @@ addStyle('js-slider', `
         left: 55px;
       }
     }
+`);
+
+addStyle('js-popup-repair', `
+  .popup-repair-types-content-table-wrap{
+    display: block !important;
+  }
+  .popup-repair-types-content-table{
+    height: 416px  !important;
+  }
+  .popup-repair-types-content-table__list tbody{
+    height: 100%  !important;
+  }
+  .nav-list-popup-repair{
+    -webkit-transition: 0s;
+    transition: 0s;
+  }
+  .popup-repair-types-nav__item {
+    min-height: 36px !important;
+    margin-top: 22px !important;
+  }
+  @media (max-width: 1024px) {
+    .popup-repair-types-content-table__list {
+      padding-left: 0;}
+    }
+  }
+  @media (max-width: 575px) {
+    .popup-repair-types-content-table-wrap{
+      display: flex !important;
+    }
+  }
 `);

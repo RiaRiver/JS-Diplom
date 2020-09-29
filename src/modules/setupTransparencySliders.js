@@ -1,5 +1,5 @@
 // Transparency слайдеры
-import { RiverSlider } from "./riverSlider";
+import { RiverSlider } from "./RiverSlider";
 
 const transparencySlider = new RiverSlider({
   main: '.transparency-slider',

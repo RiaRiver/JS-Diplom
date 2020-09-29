@@ -1,5 +1,5 @@
 // Designs слайдер
-import { RiverSlider } from "./riverSlider";
+import { RiverSlider } from "./RiverSlider";
 
 const designsStyle1Slider = new RiverSlider({
   main: '.designs-slider__style1',

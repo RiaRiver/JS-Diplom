@@ -1,5 +1,5 @@
 // Scheme слайдер
-import { RiverSlider } from "./riverSlider";
+import { RiverSlider } from "./RiverSlider";
 
 const schemeSlider = new RiverSlider({
   main: '.scheme-slider',

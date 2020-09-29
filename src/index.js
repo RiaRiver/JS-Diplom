@@ -4,7 +4,7 @@ import { setupSmoothScroll } from "./modules/setupSmoothScroll";
 import { setupForms } from "./modules/setupForms";
 import { setupAccordion } from "./modules/setupAccordion";
 import { maskPhone } from "./modules/maskPhone";
-import { RiverSlider } from "./modules/riverSlider";
+import { RiverSlider } from "./modules/RiverSlider";
 
 import "./modules/setupPopUps"; // Настройка модальных
 import "./modules/addDiffStyles"; // Добавление некоторых стилей
@@ -14,6 +14,7 @@ import "./modules/setupTransparencySliders"; // Настройка слайде�
 import "./modules/setupDesignsSliders"; // Настройка слайдеров Дизайн
 import "./modules/setupSchemeSlider"; // Настройка слайдеров Работа
 import "./modules/setupControlTabs"; // Настройка Табов
+import "./modules/setupDymanicData"; // Настройка динамических данных для модального Виды ремонта
 
 import { popupMenu, popupPortfolio, popupThank } from "./modules/setupPopUps";
 import { popupTransparencySlider } from "./modules/setupTransparencySliders";
