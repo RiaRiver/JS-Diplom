@@ -28,7 +28,7 @@ const formulaItems = document.querySelectorAll('.formula-item, .problems-item');
 formulaItems.forEach(item => {
   item.addEventListener('mouseenter', event => {
     const currentTarget = event.currentTarget;
-    if (currentTarget && !window.matchMedia("(max-width: 1024px)").matches) {
+    if (currentTarget) {
       currentTarget.classList.add('active-item');
       const currentToolTip = currentTarget.querySelector('.formula-item-popup,.problems-item-popup');
       if (currentToolTip.getBoundingClientRect().top < 0) {
@@ -38,7 +38,7 @@ formulaItems.forEach(item => {
   });
   item.addEventListener('mouseleave', event => {
     const currentTarget = event.currentTarget;
-    if (currentTarget && !window.matchMedia("(max-width: 1024px)").matches) {
+    if (currentTarget) {
       currentTarget.classList.remove('active-item');
       const currentToolTip = currentTarget.querySelector('.formula-item-popup, .problems-item-popup');
       currentToolTip.classList.remove('rotate');
