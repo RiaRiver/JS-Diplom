@@ -214,6 +214,9 @@ export class RiverSlider {
     this.wrap.classList.remove(this.wrapClass);
     this.slides.forEach(slide => {
       slide.classList.remove(...this.slideClasses);
+      if (this.options.activeSlideClass) {
+        slide.classList.remove(this.options.activeSlideClass);
+      }
       slide.style.flex = '';
     });
   }
@@ -271,8 +274,12 @@ export class RiverSlider {
 
   // Изменяет слайд
   changeSlide(position) {
-    this.slides[this.options.position].classList.remove(`${this.activeClass}`);
-    this.slides[position].classList.add(`${this.activeClass}`);
+    this.slides[this.options.position].classList.remove(this.activeClass);
+    this.slides[position].classList.add(this.activeClass);
+    if (this.options.activeSlideClass) {
+      this.slides[position].classList.remove(this.options.activeSlideClass);
+      this.slides[position].classList.add(this.options.activeSlideClass);
+    }
     if (this.type === 'slide') {
       this.wrap.style.transform = `translateX(-${position * this.currentConfig.slideWidth}%)`;
     }

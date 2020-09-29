@@ -5,7 +5,7 @@ export class PopUp {
   constructor({ popUpSelector, openButtonsSelector, closeButtonsSelector, activeClass = 'active', activeCSS, disactiveClass }) {
     this.popUp = document.querySelector(popUpSelector);
     this.openButtons = document.querySelectorAll(openButtonsSelector);
-    this.closeButtons = this.popUp.querySelectorAll(closeButtonsSelector);
+    this.closeButtons = [...this.popUp.querySelectorAll(closeButtonsSelector)];
     this.activeClass = activeClass;
     this.disactiveClass = disactiveClass;
 
@@ -31,6 +31,7 @@ export class PopUp {
     this.popUp.classList.remove(this.activeClass);
   }
 
+
   // Слушатели на управляющие кнопки
   init() {
     if (this.disactiveClass) {
@@ -41,10 +42,12 @@ export class PopUp {
         button.addEventListener('click', this.openPopUp.bind(this));
       });
     }
-    if (this.closeButtons.length) {
-      this.closeButtons.forEach(button => {
-        button.addEventListener('click', this.closePopUp.bind(this));
-      });
-    }
+
+    this.popUp.addEventListener('click', event => {
+      const target = event.target;
+      if (this.closeButtons.includes(target) || target === this.popUp) {
+        this.closePopUp();
+      }
+    });
   }
 }

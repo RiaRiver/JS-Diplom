@@ -55,7 +55,6 @@ const formulaSlider = new RiverSlider({
   disabledArrowClass: 'hide',
   // loop: true,
   type: 'slide',
-  activeSlideClass: 'active-item'
 });
 formulaSlider.init();
 
@@ -68,6 +67,5 @@ const problemsSlider = new RiverSlider({
   disabledArrowClass: 'hide',
   // loop: true,
   type: 'slide',
-  activeSlideClass: 'active-item'
 });
 problemsSlider.init();
