@@ -8701,12 +8701,12 @@ div.wave-block:nth-child(17):after {
     fill: #ffffff;
 }
 
-@media (max-width: 1024px) {
-    .active-item .problems-item-popup {
-        visibility: visible;
-        opacity: 1;
-    }
+
+.active-item .problems-item-popup {
+    visibility: visible;
+    opacity: 1;
 }
+
 
 #designs > .wrapper > div.preview-block.visible > .preview-block__item.preview_active > .preview-block__item-inner {
     color: #ffffff;

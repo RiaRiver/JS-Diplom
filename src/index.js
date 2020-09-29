@@ -15,6 +15,7 @@ import "./modules/setupDesignsSliders"; // Настройка слайдеров
 import "./modules/setupSchemeSlider"; // Настройка слайдеров Работа
 import "./modules/setupControlTabs"; // Настройка Табов
 import "./modules/setupDymanicData"; // Настройка динамических данных для модального Виды ремонта
+import "./modules/setupToolTips"; // Настройка динамических данных для модального Виды ремонта
 
 import { popupMenu, popupPortfolio, popupThank } from "./modules/setupPopUps";
 import { popupTransparencySlider } from "./modules/setupTransparencySliders";
